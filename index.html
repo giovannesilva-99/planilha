@@ -29,7 +29,7 @@
     background: var(--light);
     color: #2D3748;
     line-height: 1.5;
-    padding: 20px 12px;
+    padding: 24px 12px;
   }
 
   .container {
@@ -38,49 +38,66 @@
     background: var(--white);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   }
 
   header {
     background: linear-gradient(135deg, var(--navy) 0%, #152035 100%);
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
+    padding: 35px 24px;
     text-align: center;
-  }
-
-  @media (min-width: 600px) {
-    header {
-      flex-direction: row;
-      justify-content: space-between;
-      text-align: left;
-    }
-  }
-
-  header img {
-    height: 45px;
-    width: auto;
-    object-fit: contain;
+    position: relative;
   }
 
   header .titulo h1 {
     color: var(--white);
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 800;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     text-transform: uppercase;
   }
 
   header .titulo p {
-    margin-top: 4px;
-    font-size: 13px;
+    margin-top: 6px;
+    font-size: 14px;
     color: #94A3B8;
     font-weight: 500;
+    letter-spacing: 0.5px;
   }
 
-  /* Estrutura de Tabela Pró para Desktops */
+  /* Painel de Progresso */
+  .progress-container {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 12px 20px;
+    max-width: 400px;
+    margin: 20px auto 0 auto;
+    backdrop-filter: blur(5px);
+  }
+
+  .progress-text {
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .progress-bar-bg {
+    background: rgba(255, 255, 255, 0.2);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    background: var(--success);
+    height: 100%;
+    width: 0%;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Estrutura de Tabela para Desktops */
   .table-responsive {
     width: 100%;
     overflow-x: auto;
@@ -90,7 +107,7 @@
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    display: none; /* Escondido no mobile, ativado via Media Query */
+    display: none;
   }
 
   @media (min-width: 768px) {
@@ -116,10 +133,6 @@
     text-align: center;
   }
 
-  tbody tr {
-    transition: background 0.2s ease;
-  }
-
   tbody tr:hover {
     background-color: #F8FAFC;
   }
@@ -139,7 +152,7 @@
   }
 
   .num-semana {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 800;
     color: var(--navy);
     display: block;
@@ -167,8 +180,9 @@
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     cursor: pointer;
+    user-select: none;
   }
 
   .item-treino:last-child {
@@ -178,12 +192,12 @@
   .item-treino input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border: 2px solid var(--blue);
     border-radius: 4px;
     outline: none;
-    margin-top: 3px;
+    margin-top: 2px;
     cursor: pointer;
     transition: all 0.2s ease;
     flex-shrink: 0;
@@ -198,10 +212,10 @@
   .item-treino input[type="checkbox"]:checked::after {
     content: '';
     position: absolute;
-    left: 4px;
+    left: 5px;
     top: 1px;
     width: 4px;
-    height: 8px;
+    height: 9px;
     border: solid white;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
@@ -210,9 +224,10 @@
   .item-treino input[type="checkbox"]:checked + span {
     color: var(--gray);
     text-decoration: line-through;
+    opacity: 0.7;
   }
 
-  /* Destaque para o grande dia */
+  /* Destaque do Objetivo */
   .card-prova {
     background: linear-gradient(135deg, var(--gold-light) 0%, #FDE68A 100%);
     border: 1px dashed var(--gold);
@@ -221,12 +236,11 @@
     text-align: center;
     color: #92400E;
     font-weight: 800;
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: 1px;
-    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.1);
   }
 
-  /* Layout em Cards (Mobile e Tablets verticais) */
+  /* Layout em Cards (Mobile) */
   .mobile-cards {
     display: flex;
     flex-direction: column;
@@ -282,13 +296,35 @@
   }
 
   footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
     text-align: center;
-    padding: 20px;
+    padding: 24px;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--gray);
     background: #FAFAFA;
     border-top: 1px solid var(--border);
+  }
+
+  .btn-reset {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--gray);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .btn-reset:hover {
+    background: #F1F5F9;
+    color: #ef4444;
+    border-color: #fca5a5;
   }
 </style>
 </head>
@@ -296,10 +332,18 @@
 
 <div class="container">
   <header>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABscAAAEMCAYAAACY6GhGAAA/CklEQVR4nO3dW3IbydIm2iClwZT2KI9ZT7DN+uHfI+mnlnAeVKhKRbhHJECAzHSsZQYjrplxIaAivvKIt7/++tEAAAAAAADgFbx/dQMAAAAAAADgswjH...[restante do base64 original omitido aqui por brevidade, mas mantido intacto no seu código]" alt="Grupo BASE">
     <div class="titulo">
       <h1>Plano de Treino de Corrida</h1>
-      <p>Macrocliclo de 8 Semanas &middot; Alvo: Prova de 5K</p>
+      <p>Grupo BASE &middot; 8 Semanas &middot; Objetivo: 5km</p>
+    </div>
+    <div class="progress-container">
+      <div class="progress-text">
+        <span>Seu Progresso</span>
+        <span id="progress-percentage">0%</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
     </div>
   </header>
 
@@ -315,147 +359,123 @@
       </thead>
       <tbody>
         <tr>
-          <td class="semana-cell">
-            <span class="num-semana">1</span>
-            <span class="tag-fase fase-adaptacao">Adaptação</span>
+          <td class="semana-cell"><span class="num-semana">1</span><span class="tag-fase fase-adaptacao">Adaptação</span></td>
+          <td>
+            <label class="item-treino"><input type="checkbox" data-id="s1-t1"><span>Caminhada: 10 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s1-t2"><span>Caminhada acelerada: 20 min</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada acelerada: 20 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s1-q1"><span>Caminhada: 10 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s1-q2"><span>Alternar: 6x (3 min caminhada / 1 min trote)</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Alternar: 6x (3 min caminhada / 1 min trote)</span></label>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Alternar: 5x (3 min caminhada / 2 min trote)</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s1-s1"><span>Caminhada: 10 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s1-s2"><span>Alternar: 5x (3 min caminhada / 2 min trote)</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s1-s3"><span>Caminhada: 5 min</span></label>
           </td>
         </tr>
         <tr>
-          <td class="semana-cell">
-            <span class="num-semana">2</span>
-            <span class="tag-fase fase-adaptacao">Adaptação</span>
+          <td class="semana-cell"><span class="num-semana">2</span><span class="tag-fase fase-adaptacao">Adaptação</span></td>
+          <td>
+            <label class="item-treino"><input type="checkbox" data-id="s2-t1"><span>Caminhada: 15 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s2-t2"><span>Trote: 10 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s2-t3"><span>Caminhada: 5 min</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 15 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Trote: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s2-q1"><span>Caminhada: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s2-q2"><span>Alternar: 8x (2 min corrida leve / 2 min caminhada)</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Alternar: 8x (2 min corrida leve / 2 min caminhada)</span></label>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Alternar: 5x (5 min trote / 2 min caminhada)</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s2-s1"><span>Caminhada: 10 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s2-s2"><span>Alternar: 5x (5 min trote / 2 min caminhada)</span></label>
           </td>
         </tr>
         <tr>
-          <td class="semana-cell">
-            <span class="num-semana">3</span>
-            <span class="tag-fase fase-condicionante">Condicionante</span>
+          <td class="semana-cell"><span class="num-semana">3</span><span class="tag-fase fase-condicionante">Condicionante</span></td>
+          <td>
+            <label class="item-treino"><input type="checkbox" data-id="s3-t1"><span>Corrida leve: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s3-t2"><span>Alternar: 5x (5 min corrida leve / 1 min caminhada)</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Corrida leve: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Alternar: 5x (5 min corrida leve / 1 min caminhada)</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s3-q1"><span>Corrida leve: 10 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s3-q2"><span>Alternar: 5x (3 min corrida moderada / 1 min caminhada)</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Corrida leve: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Alternar: 5x (3 min corrida moderada / 1 min caminhada)</span></label>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Corrida leve: 20 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s3-s1"><span>Caminhada: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s3-s2"><span>Corrida leve: 20 min</span></label>
           </td>
         </tr>
         <tr>
-          <td class="semana-cell">
-            <span class="num-semana">4</span>
-            <span class="tag-fase fase-condicionante">Condicionante</span>
+          <td class="semana-cell"><span class="num-semana">4</span><span class="tag-fase fase-condicionante">Condicionante</span></td>
+          <td>
+            <label class="item-treino"><input type="checkbox" data-id="s4-t1"><span>Caminhada: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s4-t2"><span>Corrida leve: 25 min</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Corrida leve: 25 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s4-q1"><span>Corrida leve: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s4-q2"><span>Alternar: 5x (1 min corrida forte / 2 min corrida leve)</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s4-q3"><span>Trote: 15 min</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Corrida leve: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Alternar: 5x (1 min corrida forte / 2 min corrida leve)</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Trote: 15 min</span></label>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Corrida moderada: 30 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s4-s1"><span>Caminhada: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s4-s2"><span>Corrida moderada: 30 min</span></label>
           </td>
         </tr>
         <tr>
-          <td class="semana-cell">
-            <span class="num-semana">5</span>
-            <span class="tag-fase fase-condicionante">Condicionante</span>
+          <td class="semana-cell"><span class="num-semana">5</span><span class="tag-fase fase-condicionante">Condicionante</span></td>
+          <td>
+            <label class="item-treino"><input type="checkbox" data-id="s5-t1"><span>Caminhada: 10 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s5-t2"><span>Corrida leve: 20 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s5-t3"><span>Trote: 15 min</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Corrida leve: 20 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Trote: 15 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s5-q1"><span>Trote: 10 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s5-q2"><span>Alternar: 5x (2 min corrida forte / 2 min corrida leve)</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s5-q3"><span>Caminhada: 5 min</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Trote: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Alternar: 5x (2 min corrida forte / 2 min corrida leve)</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 5 min</span></label>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox"><span>Corrida leve: 30 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s5-s1"><span>Corrida leve: 30 min</span></label>
           </td>
         </tr>
         <tr>
-          <td class="semana-cell">
-            <span class="num-semana">6</span>
-            <span class="tag-fase fase-aperfeicoamento">Aperfeiçoamento</span>
+          <td class="semana-cell"><span class="num-semana">6</span><span class="tag-fase fase-aperfeicoamento">Aperfeiçoamento</span></td>
+          <td>
+            <label class="item-treino"><input type="checkbox" data-id="s6-t1"><span>Corrida leve: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s6-t2"><span>Corrida moderada: 30 min</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Corrida leve: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Corrida moderada: 30 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s6-q1"><span>Corrida leve: 10 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s6-q2"><span>Alternar: 4x (2 min corrida forte / 3 min corrida leve)</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s6-q3"><span>Trote: 15 min</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Corrida leve: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Alternar: 4x (2 min corrida forte / 3 min corrida leve)</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Trote: 15 min</span></label>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Corrida moderada: 30 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s6-s1"><span>Caminhada: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s6-s2"><span>Corrida moderada: 30 min</span></label>
           </td>
         </tr>
         <tr>
-          <td class="semana-cell">
-            <span class="num-semana">7</span>
-            <span class="tag-fase fase-aperfeicoamento">Aperfeiçoamento</span>
+          <td class="semana-cell"><span class="num-semana">7</span><span class="tag-fase fase-aperfeicoamento">Aperfeiçoamento</span></td>
+          <td>
+            <label class="item-treino"><input type="checkbox" data-id="s7-t1"><span>Trote: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s7-t2"><span>Corrida moderada: 30 min</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Trote: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Corrida moderada: 30 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s7-q1"><span>Trote: 10 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s7-q2"><span>Alternar: 6x (3 min corrida forte / 2 min corrida leve)</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s7-q3"><span>Caminhada: 5 min</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Trote: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Alternar: 6x (3 min corrida forte / 2 min corrida leve)</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 5 min</span></label>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox"><span>Corrida moderada: 30 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s7-s1"><span>Corrida moderada: 30 min</span></label>
           </td>
         </tr>
         <tr>
-          <td class="semana-cell">
-            <span class="num-semana">8</span>
-            <span class="tag-fase fase-objetivo">Objetivo</span>
+          <td class="semana-cell"><span class="num-semana">8</span><span class="tag-fase fase-objetivo">Objetivo</span></td>
+          <td>
+            <label class="item-treino"><input type="checkbox" data-id="s8-t1"><span>Caminhada: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s8-t2"><span>Corrida moderada: 35 min</span></label>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox"><span>Caminhada: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox"><span>Corrida moderada: 35 min</span></label>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox"><span>Corrida leve: 30 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s8-q1"><span>Corrida leve: 30 min</span></label>
           </td>
           <td>
             <div class="card-prova">🏆 PROVA DE 5KM</div>
@@ -465,22 +485,21 @@
     </table>
   </div>
 
-  <div class="mobile-cards">
-    </div>
+  <div class="mobile-cards"></div>
 
   <footer>
-    Grupo BASE &middot; Foco, Constância e Evolução.
+    <span>GRUPO BASE &middot; FOCO, CONSTÂNCIA E EVOLUÇÃO</span>
+    <button class="btn-reset" onclick="resetPlanilha()">Reiniciar Planilha</button>
   </footer>
 </div>
 
 <script>
-  // Script simples para gerar os cards mobile automaticamente com base na tabela desktop
-  // Isso garante performance e que você só precise editar os treinos em um único lugar (na tabela acima)!
   document.addEventListener("DOMContentLoaded", function() {
     const tableRows = document.querySelectorAll("tbody tr");
     const mobileContainer = document.querySelector(".mobile-cards");
     const headers = ["Terça-Feira", "Quinta-Feira", "Sábado"];
 
+    // 1. Gera automaticamente os cards mobile clonando a lógica e os IDs da tabela
     tableRows.forEach(row => {
       const numSemana = row.querySelector(".num-semana").innerText;
       const tagFase = row.querySelector(".tag-fase").outerHTML;
@@ -506,7 +525,56 @@
       cardHtml += `</div>`;
       mobileContainer.innerHTML += cardHtml;
     });
+
+    // 2. Sistema de "Banco de Dados" no LocalStorage integrado entre Mobile e Desktop
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    
+    // Carrega os dados salvos anteriormente
+    checkboxes.forEach(cb => {
+      const id = cb.getAttribute('data-id');
+      if (localStorage.getItem(id) === 'true') {
+        cb.checked = true;
+      }
+      
+      // Escuta as mudanças de clique
+      cb.addEventListener('change', function() {
+        const state = this.checked;
+        const currentId = this.getAttribute('data-id');
+        
+        // Sincroniza caso o mesmo ID apareça no mobile e desktop
+        document.querySelectorAll(`[data-id="${currentId}"]`).forEach(mirrorCb => {
+          mirrorCb.checked = state;
+        });
+
+        localStorage.setItem(currentId, state);
+        atualizarProgresso();
+      });
+    });
+
+    // 3. Atualiza a barra de progresso com base nas caixas únicas
+    function atualizarProgresso() {
+      const totalUnicos = document.querySelectorAll('table input[type="checkbox"]').length;
+      const marcadosUnicos = document.querySelectorAll('table input[type="checkbox"]:checked').length;
+      
+      const porcentagem = totalUnicos > 0 ? Math.round((marcadosUnicos / totalUnicos) * 100) : 0;
+      
+      document.getElementById('progress-fill').style.width = porcentagem + '%';
+      document.getElementById('progress-percentage').innerText = porcentagem + '%';
+    }
+
+    // Inicializa a barra ao abrir a página
+    atualizarProgresso();
+    window.atualizarProgresso = atualizarProgresso; 
   });
+
+  // Função para limpar o "banco de dados" do navegador
+  function resetPlanilha() {
+    if (confirm("Deseja realmente limpar seu progresso e reiniciar os treinos?")) {
+      localStorage.clear();
+      document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+      window.atualizarProgresso();
+    }
+  }
 </script>
 </body>
 </html>
