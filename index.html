@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planilha de Treino de Corrida | Grupo BASE</title>
+<title>Planilha de Treino de Corrida | Sugestão de Treino</title>
 <style>
   :root {
     --navy: #1E2D4A;
@@ -67,23 +67,21 @@
     font-weight: 500;
   }
 
-  /* Aviso Médico */
+  /* Aviso Médico e Sugestão */
   .aviso-medico {
     background: #FEF2F2;
     border: 1px solid #FCA5A5;
     color: #991B1B;
     border-radius: 8px;
-    padding: 10px 16px;
-    max-width: 600px;
+    padding: 12px 16px;
+    max-width: 650px;
     margin: 16px auto 0 auto;
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    line-height: 1.4;
+    text-align: center;
   }
 
   /* Painel de Progresso */
@@ -475,13 +473,13 @@
 <div class="container">
   <header>
     <div class="titulo">
-      <h1>Plano de Treino de Corrida</h1>
-      <p>Grupo BASE &middot; 8 Semanas &middot; Objetivo: 5KM</p>
+      <h1>Planilha de Treino de Corrida</h1>
+      <p>Sugestão de Preparação &middot; Desafio 5KM em 23/08/2026</p>
     </div>
     
     <!-- Aviso Médico -->
     <div class="aviso-medico">
-      ⚠️ ATENÇÃO: Ao menor sinal de desconforto ou dor intensa, suspenda o treino e procure um médico.
+      ⚠️ <strong>IMPORTANTE:</strong> Este conteúdo é apenas uma sugestão de planilha de treino. Ao menor sinal de desconforto, dor ou mal-estar, suspenda imediatamente as atividades e procure orientação médica.
     </div>
 
     <div class="dashboard">
@@ -498,7 +496,7 @@
 
   <!-- Legenda de Percepção Subjetiva de Esforço -->
   <div class="legenda">
-    <div class="legenda-item"><span class="dot" style="background: #166534;"></span><span>Leve (PSE 3-4): Ritmo de conversa</span></div>
+    <div class="legenda-item"><span class="dot" style="background: #166534;"></span><span>Leve (PSE 3-4): Ritmo de conversa confortável</span></div>
     <div class="legenda-item"><span class="dot" style="background: #854D0E;"></span><span>Moderado (PSE 5-7): Respiração ofegante mas controlada</span></div>
     <div class="legenda-item"><span class="dot" style="background: #991B1B;"></span><span>Forte (PSE 8-9): Velocidade máxima sustentável</span></div>
   </div>
@@ -520,23 +518,27 @@
           <td class="semana-cell">
             <span class="num-semana">1</span>
             <span class="tag-fase fase-adaptacao">Adaptação</span>
+            <div style="font-size: 10px; margin-top: 4px; color: var(--gray);">14/07 - 18/07</div>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s1-t1"><span>Caminhada: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s1-t2"><span>Caminhada acelerada: 15 min</span></label>
+            <strong>Ter 14/07</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s1-t1"><span>Caminhada de aquecimento: 10 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s1-t2"><span>5x (2 min trote leve / 2 min caminhada)</span></label>
             <span class="badge-pse pse-leve">PSE 3 - Leve</span>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s1-q1"><span>Caminhada aquecimento: 8 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s1-q2"><span>6x (3 min caminhando / 1 min trote leve)</span></label>
+            <strong>Qui 16/07</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s1-q1"><span>Caminhada rápida: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s1-q2"><span>6x (1 min 30s trote leve / 1 min 30s caminhada)</span></label>
             <span class="badge-pse pse-moderado">PSE 5 - Moderado</span>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s1-s1"><span>Caminhada aquecimento: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s1-s2"><span>5x (3 min caminhando / 2 min trote leve)</span></label>
+            <strong>Sáb 18/07</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s1-s1"><span>Caminhada ativa: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s1-s2"><span>4x (3 min trote leve / 2 min caminhada)</span></label>
             <span class="badge-pse pse-leve">PSE 4 - Leve</span>
           </td>
-          <td class="meta-semanal">Iniciar a adaptação muscular e articular sem sobrecarga de impacto.</td>
+          <td class="meta-semanal">Iniciar a adaptação articular com estímulos curtos e seguros de corrida intercalada.</td>
         </tr>
 
         <!-- Semana 2 -->
@@ -544,161 +546,136 @@
           <td class="semana-cell">
             <span class="num-semana">2</span>
             <span class="tag-fase fase-adaptacao">Adaptação</span>
+            <div style="font-size: 10px; margin-top: 4px; color: var(--gray);">21/07 - 25/07</div>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s2-t1"><span>Caminhada ativa: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s2-t2"><span>Trote contínuo: 12 min</span></label>
+            <strong>Ter 21/07</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s2-t1"><span>Caminhada rápida: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s2-t2"><span>3x (5 min trote leve / 2 min caminhada)</span></label>
             <span class="badge-pse pse-leve">PSE 4 - Leve</span>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s2-q1"><span>Caminhada aquecimento: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s2-q2"><span>8x (2 min corrida leve / 1 min 30s caminhada)</span></label>
+            <strong>Qui 23/07</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s2-q1"><span>Caminhada leve: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s2-q2"><span>5x (3 min trote leve / 1 min 30s caminhada)</span></label>
             <span class="badge-pse pse-moderado">PSE 6 - Moderado</span>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s2-s1"><span>Caminhada aquecimento: 8 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s2-s2"><span>5x (4 min trote leve / 2 min caminhada)</span></label>
+            <strong>Sáb 25/07</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s2-s1"><span>Caminhada de aquecimento: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s2-s2"><span>4x (4 min trote leve / 2 min caminhada)</span></label>
             <span class="badge-pse pse-leve">PSE 4 - Leve</span>
           </td>
-          <td class="meta-semanal">Aumentar levemente o tempo acumulado correndo na semana.</td>
+          <td class="meta-semanal">Aumentar suavemente o tempo acumulado de corrida sem pular etapas.</td>
         </tr>
 
         <!-- Semana 3 -->
         <tr>
           <td class="semana-cell">
             <span class="num-semana">3</span>
-            <span class="tag-fase fase-condicionante">Condicionamento</span>
+            <span class="tag-fase fase-condicionante">Condição</span>
+            <div style="font-size: 10px; margin-top: 4px; color: var(--gray);">28/07 - 01/08</div>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s3-t1"><span>Corrida leve de aquecimento: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s3-t2"><span>4x (5 min corrida leve / 1 min caminhada)</span></label>
-            <span class="badge-pse pse-leve">PSE 4 - Leve</span>
+            <strong>Ter 28/07</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s3-t1"><span>Caminhada rápida: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s3-t2"><span>2x (8 min trote confortável / 2 min caminhada)</span></label>
+            <span class="badge-pse pse-leve">PSE 5 - Moderado</span>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s3-q1"><span>Corrida leve: 8 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s3-q2"><span>5x (3 min corrida moderada / 1 min caminhada ativa)</span></label>
+            <strong>Qui 30/07</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s3-q1"><span>Caminhada ativa: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s3-q2"><span>6x (2 min corrida moderada / 1 min caminhada ativa)</span></label>
             <span class="badge-pse pse-moderado">PSE 7 - Moderado/Forte</span>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s3-s1"><span>Caminhada ativa: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s3-s2"><span>Corrida contínua (ritmo confortável): 20 min</span></label>
+            <strong>Sáb 01/08</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s3-s1"><span>Caminhada rápida de aquecimento: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s3-s2"><span>15 min de corrida contínua constante</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s3-s3"><span>Caminhada: 3 min + Trote leve final: 5 min</span></label>
             <span class="badge-pse pse-leve">PSE 4 - Leve</span>
           </td>
-          <td class="meta-semanal">Consolidar 20 minutos de corrida contínua no treino de sábado.</td>
+          <td class="meta-semanal">Consolidar fôlego e experimentar frações de tempo maiores de corrida direta.</td>
         </tr>
 
         <!-- Semana 4 -->
         <tr>
           <td class="semana-cell">
             <span class="num-semana">4</span>
-            <span class="tag-fase fase-condicionante">Condicionamento</span>
+            <span class="tag-fase fase-condicionante">Condição</span>
+            <div style="font-size: 10px; margin-top: 4px; color: var(--gray);">04/08 - 08/08</div>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s4-t1"><span>Caminhada: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s4-t2"><span>Corrida contínua leve: 25 min</span></label>
+            <strong>Ter 04/08</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s4-t1"><span>Caminhada rápida: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s4-t2"><span>20 min de corrida contínua (confortável)</span></label>
             <span class="badge-pse pse-leve">PSE 5 - Moderado</span>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s4-q1"><span>Corrida leve: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s4-q2"><span>5x (2 min corrida forte / 2 min trote leve)</span></label>
+            <strong>Qui 06/08</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s4-q1"><span>Trote leve de aquecimento: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s4-q2"><span>5x (3 min corrida moderada/forte / 1 min 30s caminhada)</span></label>
             <span class="badge-pse pse-forte">PSE 8 - Forte</span>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s4-s1"><span>Caminhada: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s4-s2"><span>Corrida em ritmo de prova (5k): 30 min</span></label>
+            <strong>Sáb 08/08</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s4-s1"><span>Caminhada e mobilidade: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s4-s2"><span>25 min de corrida contínua no ritmo ideal de prova</span></label>
             <span class="badge-pse pse-moderado">PSE 6 - Moderado</span>
           </td>
-          <td class="meta-semanal">Introduzir estímulos de velocidade curta e testar o ritmo de prova de 30min.</td>
+          <td class="meta-semanal">Ganhar resistência aeróbica sustentando estímulos de corrida contínua por mais tempo.</td>
         </tr>
 
         <!-- Semana 5 -->
         <tr>
           <td class="semana-cell">
             <span class="num-semana">5</span>
-            <span class="tag-fase fase-condicionante">Condicionamento</span>
+            <span class="tag-fase fase-aperfeicoamento">Ajustes</span>
+            <div style="font-size: 10px; margin-top: 4px; color: var(--gray);">11/08 - 15/08</div>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s5-t1"><span>Caminhada ativa: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s5-t2"><span>Corrida confortável: 30 min</span></label>
+            <strong>Ter 11/08</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s5-t1"><span>Corrida confortável direta: 25 min</span></label>
             <span class="badge-pse pse-leve">PSE 5 - Moderado</span>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s5-q1"><span>Trote leve aquecimento: 8 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s5-q2"><span>6x (2 min corrida bem rápida / 1 min 30s caminhada)</span></label>
+            <strong>Qui 13/08</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s5-q1"><span>Trote leve de aquecimento: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s5-q2"><span>4x (4 min em ritmo forte de prova / 2 min caminhada ativa)</span></label>
             <span class="badge-pse pse-forte">PSE 8 - Forte</span>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s5-s1"><span>Corrida leve constante: 35 min</span></label>
-            <span class="badge-pse pse-leve">PSE 5 - Leve/Moderado</span>
+            <strong>Sáb 15/08</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s5-s1"><span>Simulado oficial: 30 a 35 min de corrida firme e constante</span></label>
+            <span class="badge-pse pse-moderado">PSE 7 - Moderado/Forte</span>
           </td>
-          <td class="meta-semanal">Subir o volume de corrida do final de semana focando na resistência aeróbica.</td>
+          <td class="meta-semanal">Semana de pico. O simulado de sábado servirá para ajustar a sua estratégia física e mental.</td>
         </tr>
 
         <!-- Semana 6 -->
         <tr>
           <td class="semana-cell">
             <span class="num-semana">6</span>
-            <span class="tag-fase fase-aperfeicoamento">Aperfeiçoamento</span>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox" data-id="s6-t1"><span>Corrida leve constante: 35 min</span></label>
-            <span class="badge-pse pse-leve">PSE 5 - Moderado</span>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox" data-id="s6-q1"><span>Corrida leve: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s6-q2"><span>4x (3 min corrida forte / 2 min trote regenerativo)</span></label>
-            <span class="badge-pse pse-forte">PSE 8 - Forte</span>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox" data-id="s6-s1"><span>Caminhada rápida: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s6-s2"><span>Corrida progressiva: 35 min (iniciar leve e terminar moderado)</span></label>
-            <span class="badge-pse pse-moderado">PSE 7 - Moderado/Forte</span>
-          </td>
-          <td class="meta-semanal">Ajustar os tiros intervalados para maior potência aeróbica.</td>
-        </tr>
-
-        <!-- Semana 7 -->
-        <tr>
-          <td class="semana-cell">
-            <span class="num-semana">7</span>
-            <span class="tag-fase fase-aperfeicoamento">Aperfeiçoamento</span>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox" data-id="s7-t1"><span>Corrida confortável regenerativa: 30 min</span></label>
-            <span class="badge-pse pse-leve">PSE 4 - Leve</span>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox" data-id="s7-q1"><span>Trote aquecimento: 10 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s7-q2"><span>5x (3 min ritmo forte de prova / 1 min caminhada ativa)</span></label>
-            <span class="badge-pse pse-forte">PSE 9 - Forte</span>
-          </td>
-          <td>
-            <label class="item-treino"><input type="checkbox" data-id="s7-s1"><span>Simulado: 40 min de corrida confortável e estável</span></label>
-            <span class="badge-pse pse-moderado">PSE 6 - Moderado</span>
-          </td>
-          <td class="meta-semanal">Último pico de volume. Consolidar o ritmo que será usado no dia do desafio oficial.</td>
-        </tr>
-
-        <!-- Semana 8 -->
-        <tr>
-          <td class="semana-cell">
-            <span class="num-semana">8</span>
             <span class="tag-fase fase-objetivo">Polimento</span>
+            <div style="font-size: 10px; margin-top: 4px; color: var(--gray);">18/08 - 23/08</div>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s8-t1"><span>Caminhada ativa: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s8-t2"><span>Trote super confortável de soltura: 20 min</span></label>
+            <strong>Ter 18/08</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s6-t1"><span>Caminhada: 5 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s6-t2"><span>Trote super leve e confortável para soltura: 15 a 20 min</span></label>
             <span class="badge-pse pse-leve">PSE 3 - Super Leve</span>
           </td>
           <td>
-            <label class="item-treino"><input type="checkbox" data-id="s8-q1"><span>Trote de soltura e ativação: 15 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s8-q2"><span>3 tiros curtos de 100m para despertar a musculatura</span></label>
+            <strong>Qui 20/08</strong>
+            <label class="item-treino"><input type="checkbox" data-id="s6-q1"><span>Trote super leve de soltura: 15 min</span></label>
+            <label class="item-treino"><input type="checkbox" data-id="s6-q2"><span>3 acelerações leves e curtas de 50m para ativar as pernas</span></label>
             <span class="badge-pse pse-leve">PSE 4 - Leve</span>
           </td>
           <td>
-            <div class="card-prova">🏆 DESAFIO PROVA DE 5KM</div>
+            <strong>Dom 23/08</strong>
+            <div class="card-prova">🏆 DOMINGO (23/08) - DESAFIO OFICIAL 5KM!</div>
           </td>
-          <td class="meta-semanal">Descansar a musculatura (polimento) para entregar o ápice no sábado do desafio!</td>
+          <td class="meta-semanal">Polimento e recuperação. Descanse bem as pernas e prepare-se para o grande dia!</td>
         </tr>
       </tbody>
     </table>
@@ -714,7 +691,7 @@
   </div>
 
   <footer>
-    <span>GRUPO BASE &middot; FOCO, CONSTÂNCIA E EVOLUÇÃO</span>
+    <span>SUGESTÃO DE PLANILHA &middot; FOCO, CONSTÂNCIA E EVOLUÇÃO</span>
     <button class="btn-reset" onclick="resetPlanilha()">Reiniciar Planilha</button>
   </footer>
 </div>
@@ -726,7 +703,7 @@
     const headers = ["Terça-Feira", "Quinta-Feira", "Sábado"];
 
     // 1. Geração automatizada de cards mobile responsivos sincronizados
-    tableRows.forEach(row => {
+    tableRows.forEach((row, rowIndex) => {
       const numSemana = row.querySelector(".num-semana").innerText;
       const tagFase = row.querySelector(".tag-fase").outerHTML;
       const metaText = row.querySelector(".meta-semanal").innerText;
@@ -744,9 +721,15 @@
       `;
 
       tdDias.forEach((td, index) => {
+        // Altera o label do último dia da semana 6 de Sábado para Domingo no Mobile
+        let diaNome = headers[index];
+        if (rowIndex === 5 && index === 2) {
+          diaNome = "Domingo";
+        }
+
         cardHtml += `
           <div class="card-dia-bloco">
-            <div class="card-dia-nome">${headers[index]}</div>
+            <div class="card-dia-nome">${diaNome}</div>
             <div>${td.innerHTML}</div>
           </div>
         `;
@@ -794,14 +777,14 @@
 
     // 4. Salvar Diário de Anotações automaticamente
     const anotacoesTextarea = document.getElementById('anotacoes-campo');
-    const anotacoesSalvas = localStorage.getItem('grupo_base_notes');
+    const anotacoesSalvas = localStorage.getItem('sugestao_treino_notes');
     
     if (anotacoesSalvas) {
       anotacoesTextarea.value = anotacoesSalvas;
     }
     
     anotacoesTextarea.addEventListener('input', function() {
-      localStorage.setItem('grupo_base_notes', this.value);
+      localStorage.setItem('sugestao_treino_notes', this.value);
     });
 
     // Inicialização da interface
