@@ -67,6 +67,25 @@
     font-weight: 500;
   }
 
+  /* Aviso Médico */
+  .aviso-medico {
+    background: #FEF2F2;
+    border: 1px solid #FCA5A5;
+    color: #991B1B;
+    border-radius: 8px;
+    padding: 10px 16px;
+    max-width: 600px;
+    margin: 16px auto 0 auto;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
   /* Painel de Progresso */
   .dashboard {
     background: rgba(255, 255, 255, 0.08);
@@ -457,8 +476,14 @@
   <header>
     <div class="titulo">
       <h1>Plano de Treino de Corrida</h1>
-      <p>Grupo BASE &middot; Assessoria e Performance &middot; Foco: 5KM</p>
+      <p>Grupo BASE &middot; 8 Semanas &middot; Objetivo: 5KM</p>
     </div>
+    
+    <!-- Aviso Médico -->
+    <div class="aviso-medico">
+      ⚠️ ATENÇÃO: Ao menor sinal de desconforto ou dor intensa, suspenda o treino e procure um médico.
+    </div>
+
     <div class="dashboard">
       <div class="progress-header">
         <span>Seu Progresso Total</span>
@@ -734,7 +759,7 @@
     // 2. Banco de dados do progresso integrado com LocalStorage
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     
-    // Carrega progresso salvo
+    // Carrega progresso salvos
     checkboxes.forEach(cb => {
       const id = cb.getAttribute('data-id');
       if (localStorage.getItem(id) === 'true') {
@@ -757,7 +782,6 @@
 
     // 3. Atualizador de progresso (Cálculo com base em IDs únicos para evitar dupla contagem)
     function atualizarProgresso() {
-      // Usando querySelectorAll específicos para contar apenas uma vez os checkboxes principais
       const totalCheckboxes = document.querySelectorAll('table input[type="checkbox"]').length;
       const marcadosCheckboxes = document.querySelectorAll('table input[type="checkbox"]:checked').length;
       
