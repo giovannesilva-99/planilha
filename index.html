@@ -3,243 +3,353 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planilha de Treino de Corrida | Sugestão de Treino</title>
+<title>Plano de Treino — Desafio 5KM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #1E2D4A;
-    --blue: #1C75BC;
-    --blue-light: #EBF3FA;
-    --gray: #6D6E71;
-    --gray-light: #E2E8F0;
-    --light: #F8F9FA;
-    --white: #FFFFFF;
-    --border: #CBD5E1;
-    --success: #10B981;
-    --success-light: #D1FAE5;
-    --gold: #D97706;
-    --gold-light: #FEF3C7;
-    --red: #EF4444;
+    --ink: #10171F;
+    --ink-soft: #1C2733;
+    --paper: #F1F5F3;
+    --card: #FFFFFF;
+    --line: #DCE3DF;
+    --text: #1C2733;
+    --text-muted: #5C6B67;
+    --coral: #E14E28;
+    --coral-soft: #FCE4DA;
+    --coral-text: #9A3016;
+    --teal: #0E5C4F;
+    --teal-soft: #DCEEEA;
+    --teal-text: #0B4038;
+    --green: #1E8E5A;
+    --green-soft: #DFF3E8;
+    --green-text: #16663F;
+    --amber: #C97A1E;
+    --amber-soft: #FBE9D3;
+    --amber-text: #8F5410;
+    --red: #C63C3C;
+    --red-soft: #FBE4E1;
+    --red-text: #8E2A2A;
   }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--paper);
+    color: var(--text);
+    line-height: 1.5;
+    padding: 28px 14px;
+  }
+
+  .display { font-family: "Oswald", sans-serif; text-transform: uppercase; }
+  .mono { font-family: "IBM Plex Mono", monospace; }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 14px 30px rgba(16, 23, 31, 0.10);
+    border: 1px solid var(--line);
+  }
+
+  /* ---------- HEADER ---------- */
+  header {
+    background: var(--ink);
     padding: 0;
   }
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: #F1F5F9;
-    color: #334155;
-    line-height: 1.5;
-    padding: 24px 12px;
+  .header-stripe {
+    height: 6px;
+    background: linear-gradient(90deg, var(--coral) 0%, var(--amber) 100%);
   }
 
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: var(--white);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    border: 1px solid var(--border);
-  }
-
-  header {
-    background: linear-gradient(135deg, var(--navy) 0%, #111827 100%);
-    padding: 30px 24px;
+  .header-inner {
+    padding: 34px 28px 26px;
     text-align: center;
-    border-bottom: 4px solid var(--blue);
+  }
+
+  .eyebrow {
+    color: var(--coral);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
   }
 
   header h1 {
-    color: var(--white);
-    font-size: 26px;
-    font-weight: 800;
+    color: #FFFFFF;
+    font-size: 30px;
+    font-weight: 700;
     letter-spacing: 1px;
-    text-transform: uppercase;
+    margin-top: 8px;
   }
 
-  header p {
+  header .subtitle {
     margin-top: 6px;
-    font-size: 14px;
-    color: #94A3B8;
+    font-size: 13px;
+    color: #97A3AC;
     font-weight: 500;
   }
 
-  /* Aviso Médico e Sugestão */
+  /* Aviso médico */
   .aviso-medico {
-    background: #FEF2F2;
-    border: 1px solid #FCA5A5;
-    color: #991B1B;
-    border-radius: 8px;
-    padding: 12px 16px;
-    max-width: 650px;
-    margin: 16px auto 0 auto;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    line-height: 1.4;
-    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--red-soft);
+    border: 1px solid #F0B7B0;
+    color: var(--red-text);
+    border-radius: 10px;
+    padding: 13px 16px;
+    max-width: 700px;
+    margin: 22px auto 0 auto;
+    font-size: 12.5px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: left;
   }
 
-  /* Painel de Progresso */
+  .aviso-medico svg { flex-shrink: 0; margin-top: 1px; }
+  .aviso-medico strong { text-transform: uppercase; letter-spacing: 0.3px; }
+
+  /* ---------- ROTA (signature element) ---------- */
+  .rota-secao {
+    background: var(--ink-soft);
+    padding: 30px 28px 26px;
+  }
+
+  .rota-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    max-width: 760px;
+    margin: 0 auto 22px auto;
+  }
+
+  .rota-titulo h2 {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .rota-titulo span {
+    color: var(--coral);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .rota-track {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  .rota-linha-bg {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    right: 10px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 2px;
+  }
+
+  .rota-linha-fill {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    height: 3px;
+    width: 0%;
+    background: var(--coral);
+    border-radius: 2px;
+    transition: width 0.5s ease-out;
+  }
+
+  .rota-pontos {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .rota-ponto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 60px;
+  }
+
+  .rota-marcador {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--ink-soft);
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: #97A3AC;
+    transition: all 0.3s ease;
+  }
+
+  .rota-marcador.feito {
+    background: var(--coral);
+    border-color: var(--coral);
+    color: #FFFFFF;
+  }
+
+  .rota-marcador.flag {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--ink);
+  }
+
+  .rota-label {
+    font-size: 10px;
+    color: #97A3AC;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  /* Painel de progresso */
   .dashboard {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 16px 20px;
-    max-width: 500px;
-    margin: 20px auto 0 auto;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 400px;
+    margin: 26px auto 0 auto;
   }
 
   .progress-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--white);
-    font-size: 13px;
-    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 12.5px;
+    font-weight: 600;
     margin-bottom: 8px;
   }
 
-  .progress-counter {
-    background: var(--blue);
-    padding: 2px 8px;
-    border-radius: 20px;
-    font-size: 11px;
-  }
+  #progress-counter { color: #97A3AC; font-family: "IBM Plex Mono", monospace; font-size: 11px; }
 
   .progress-bar-bg {
-    background: rgba(255, 255, 255, 0.2);
-    height: 10px;
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.14);
+    height: 8px;
+    border-radius: 5px;
     overflow: hidden;
   }
 
   .progress-bar-fill {
-    background: var(--success);
+    background: var(--green);
     height: 100%;
     width: 0%;
     transition: width 0.4s ease-out;
   }
 
-  /* Legenda de Intensidade */
+  /* ---------- LEGENDA ---------- */
   .legenda {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
-    padding: 14px;
-    background: var(--light);
-    border-bottom: 1px solid var(--border);
-    font-size: 11px;
-    font-weight: 600;
-    color: #64748B;
+    gap: 10px;
+    padding: 16px 20px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
   }
 
-  .legenda-item {
+  .legenda-pill {
     display: flex;
     align-items: center;
     gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11.5px;
+    font-weight: 600;
   }
 
-  .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
+  .legenda-pill.leve { background: var(--green-soft); color: var(--green-text); }
+  .legenda-pill.moderado { background: var(--amber-soft); color: var(--amber-text); }
+  .legenda-pill.forte { background: var(--red-soft); color: var(--red-text); }
 
-  /* Tabela Estilo Planilha */
-  .table-responsive {
-    width: 100%;
-    overflow-x: auto;
-  }
+  /* ---------- TABELA ---------- */
+  .table-responsive { width: 100%; overflow-x: auto; }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    display: none;
-  }
+  table { width: 100%; border-collapse: collapse; display: none; }
 
-  @media (min-width: 768px) {
-    table {
-      display: table;
-    }
-  }
+  @media (min-width: 800px) { table { display: table; } }
 
   thead th {
-    background: var(--blue-light);
-    color: var(--navy);
-    font-size: 11px;
-    font-weight: 800;
+    background: var(--teal-soft);
+    color: var(--teal-text);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.6px;
     padding: 14px 16px;
     text-align: left;
-    border-bottom: 2px solid var(--border);
-    border-right: 1px solid var(--border);
+    border-bottom: 2px solid var(--line);
+    border-right: 1px solid var(--line);
   }
 
-  thead th:last-child {
-    border-right: none;
-  }
+  thead th:last-child { border-right: none; }
 
-  tbody tr {
-    border-bottom: 1px solid var(--border);
-  }
-
-  tbody tr:hover {
-    background-color: #F8FAFC;
-  }
+  tbody tr { border-bottom: 1px solid var(--line); }
+  tbody tr:hover { background-color: #FAFCFB; }
 
   tbody td {
     padding: 16px;
     font-size: 13px;
     vertical-align: top;
-    border-right: 1px solid var(--border);
+    border-right: 1px solid var(--line);
   }
 
-  tbody td:last-child {
-    border-right: none;
-  }
+  tbody td:last-child { border-right: none; }
 
-  /* Semana e Fases */
-  .semana-cell {
-    text-align: center;
-    background: #F8FAFC;
-    font-weight: 700;
-    width: 110px;
-  }
+  .semana-cell { text-align: center; background: var(--paper); font-weight: 600; width: 112px; }
 
   .num-semana {
-    font-size: 26px;
-    font-weight: 900;
-    color: var(--navy);
+    font-family: "Oswald", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--ink);
     display: block;
     line-height: 1;
   }
 
   .tag-fase {
     display: inline-block;
-    padding: 3px 8px;
+    padding: 3px 9px;
     border-radius: 12px;
     font-size: 9px;
-    font-weight: 800;
+    font-weight: 700;
     text-transform: uppercase;
-    margin-top: 6px;
-    letter-spacing: 0.3px;
-    border: 1px solid transparent;
+    margin-top: 7px;
+    letter-spacing: 0.4px;
   }
 
-  .fase-adaptacao { background: #E0F2FE; color: #0369A1; border-color: #BAE6FD; }
-  .fase-condicionante { background: #FEF3C7; color: #B45309; border-color: #FDE68A; }
-  .fase-aperfeicoamento { background: #E0E7FF; color: #4338CA; border-color: #C7D2FE; }
-  .fase-objetivo { background: var(--success-light); color: #065F46; border-color: #A7F3D0; }
+  .fase-adaptacao { background: var(--teal-soft); color: var(--teal-text); }
+  .fase-condicionante { background: var(--amber-soft); color: var(--amber-text); }
+  .fase-aperfeicoamento { background: #E7E4FB; color: #4B3F94; }
+  .fase-objetivo { background: var(--green-soft); color: var(--green-text); }
 
-  /* Lista de Exercícios */
+  .dia-data {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 8px;
+  }
+
   .item-treino {
     display: flex;
     align-items: flex-start;
@@ -249,16 +359,14 @@
     user-select: none;
   }
 
-  .item-treino:last-child {
-    margin-bottom: 0;
-  }
+  .item-treino:last-of-type { margin-bottom: 0; }
 
   .item-treino input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
-    border: 2px solid var(--blue);
+    width: 17px;
+    height: 17px;
+    border: 2px solid var(--teal);
     border-radius: 4px;
     outline: none;
     margin-top: 1px;
@@ -268,16 +376,13 @@
     position: relative;
   }
 
-  .item-treino input[type="checkbox"]:checked {
-    background-color: var(--success);
-    border-color: var(--success);
-  }
+  .item-treino input[type="checkbox"]:checked { background-color: var(--green); border-color: var(--green); }
 
   .item-treino input[type="checkbox"]:checked::after {
     content: '';
     position: absolute;
-    left: 5px;
-    top: 1px;
+    left: 4px;
+    top: 0px;
     width: 4px;
     height: 8px;
     border: solid white;
@@ -285,135 +390,86 @@
     transform: rotate(45deg);
   }
 
-  .item-treino input[type="checkbox"]:checked + span {
-    color: var(--gray);
-    text-decoration: line-through;
-    opacity: 0.7;
-  }
+  .item-treino input[type="checkbox"]:checked + span { color: var(--text-muted); text-decoration: line-through; opacity: 0.7; }
 
-  /* Intensidade / Esforço Badge */
+  .item-treino span { font-size: 13px; }
+
   .badge-pse {
     display: inline-block;
+    font-family: "IBM Plex Mono", monospace;
     font-size: 10px;
-    font-weight: 700;
-    padding: 1px 6px;
+    font-weight: 600;
+    padding: 2px 7px;
     border-radius: 4px;
-    margin-top: 4px;
-    background: #E2E8F0;
-    color: #475569;
+    margin-top: 5px;
   }
 
-  .pse-leve { background: #DCFCE7; color: #166534; }
-  .pse-moderado { background: #FEF9C3; color: #854D0E; }
-  .pse-forte { background: #FEE2E2; color: #991B1B; }
+  .pse-leve { background: var(--green-soft); color: var(--green-text); }
+  .pse-moderado { background: var(--amber-soft); color: var(--amber-text); }
+  .pse-forte { background: var(--red-soft); color: var(--red-text); }
 
-  /* Meta Semanal */
-  .meta-semanal {
-    font-size: 12px;
-    color: #475569;
-    font-style: italic;
-    font-weight: 500;
-  }
+  .meta-semanal { font-size: 12.5px; color: var(--text-muted); font-weight: 500; }
 
-  /* Destaque Prova */
   .card-prova {
-    background: linear-gradient(135deg, var(--gold-light) 0%, #FDE68A 100%);
-    border: 2px dashed var(--gold);
+    background: var(--ink);
+    border: 2px dashed var(--amber);
     padding: 16px 12px;
-    border-radius: 8px;
+    border-radius: 10px;
     text-align: center;
-    color: #92400E;
-    font-weight: 900;
+    color: #FFFFFF;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
     font-size: 13px;
-    letter-spacing: 0.5px;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-  }
-
-  /* Layout Mobile */
-  .mobile-cards {
+    letter-spacing: 0.6px;
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-  }
-
-  @media (min-width: 768px) {
-    .mobile-cards {
-      display: none;
-    }
-  }
-
-  .card-semana {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.03);
-  }
-
-  .card-semana-header {
-    background: var(--navy);
-    padding: 12px 16px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
 
-  .card-semana-titulo {
-    font-weight: 800;
-    color: var(--white);
-    font-size: 15px;
-  }
+  .card-prova svg { flex-shrink: 0; }
 
-  .card-meta-bloco {
-    background: #F8FAFC;
-    padding: 10px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 12px;
-    color: #475569;
-  }
+  /* ---------- MOBILE CARDS ---------- */
+  .mobile-cards { display: flex; flex-direction: column; gap: 16px; padding: 18px 16px; }
 
-  .card-dia-bloco {
-    padding: 14px 16px;
-    border-bottom: 1px solid #F1F5F9;
-  }
+  @media (min-width: 800px) { .mobile-cards { display: none; } }
 
-  .card-dia-bloco:last-child {
-    border-bottom: none;
-  }
+  .card-semana { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+
+  .card-semana-header { background: var(--ink); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+
+  .card-semana-titulo { font-family: "Oswald", sans-serif; font-weight: 600; color: #FFFFFF; font-size: 15px; letter-spacing: 0.5px; }
+
+  .card-meta-bloco { background: var(--paper); padding: 10px 16px; border-bottom: 1px solid var(--line); font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+  .card-dia-bloco { padding: 14px 16px; border-bottom: 1px solid var(--paper); }
+
+  .card-dia-bloco:last-child { border-bottom: none; }
 
   .card-dia-nome {
-    font-size: 11px;
-    font-weight: 800;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    font-weight: 600;
     text-transform: uppercase;
-    color: var(--blue);
+    color: var(--teal);
     margin-bottom: 6px;
-    letter-spacing: 0.5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    letter-spacing: 0.6px;
   }
 
-  /* Seção de Anotações do Corredor */
-  .anotacoes-secao {
-    padding: 20px;
-    background: #F8FAFC;
-    border-top: 1px solid var(--border);
-  }
+  /* ---------- DIÁRIO ---------- */
+  .anotacoes-secao { padding: 22px 24px; background: var(--paper); border-top: 1px solid var(--line); }
 
   .anotacoes-secao h3 {
-    font-size: 15px;
-    font-weight: 800;
-    color: var(--navy);
+    font-family: "Oswald", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
     margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.6px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
   }
 
   .anotacoes-secao textarea {
@@ -421,386 +477,462 @@
     height: 90px;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid var(--border);
-    font-family: inherit;
+    border: 1px solid var(--line);
+    font-family: "Work Sans", sans-serif;
     font-size: 13px;
     resize: none;
     outline: none;
     transition: border-color 0.2s;
+    background: var(--card);
   }
 
-  .anotacoes-secao textarea:focus {
-    border-color: var(--blue);
-  }
+  .anotacoes-secao textarea:focus { border-color: var(--teal); }
 
-  /* Rodapé */
+  .anotacoes-status { font-size: 10.5px; color: var(--text-muted); margin-top: 6px; font-family: "IBM Plex Mono", monospace; min-height: 14px; }
+
+  /* ---------- RODAPÉ ---------- */
   footer {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
     text-align: center;
-    padding: 24px;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--gray);
-    background: var(--light);
-    border-top: 1px solid var(--border);
+    padding: 22px;
+    background: var(--card);
+    border-top: 1px solid var(--line);
+  }
+
+  footer .disclaimer {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
   }
 
   .btn-reset {
-    background: var(--white);
-    border: 1px solid #FCA5A5;
+    background: var(--card);
+    border: 1px solid #F0B7B0;
     color: var(--red);
     padding: 8px 16px;
     border-radius: 6px;
     font-size: 11px;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 0.4px;
     transition: all 0.2s;
-    letter-spacing: 0.5px;
   }
 
-  .btn-reset:hover {
-    background: #FEF2F2;
-    border-color: var(--red);
-  }
+  .btn-reset:hover { background: var(--red-soft); border-color: var(--red); }
 </style>
 </head>
 <body>
 
 <div class="container">
   <header>
-    <div class="titulo">
-      <h1>Planilha de Treino de Corrida</h1>
-      <p>Sugestão de Preparação &middot; Desafio 5KM em 23/08/2026</p>
-    </div>
-    
-    <!-- Aviso Médico -->
-    <div class="aviso-medico">
-      ⚠️ <strong>IMPORTANTE:</strong> Este conteúdo é apenas uma sugestão de planilha de treino. Ao menor sinal de desconforto, dor ou mal-estar, suspenda imediatamente as atividades e procure orientação médica.
+    <div class="header-stripe"></div>
+    <div class="header-inner">
+      <div class="eyebrow">Sugestão de treino · 6 semanas</div>
+      <h1>Plano de treino de corrida</h1>
+      <p class="subtitle">Preparação para o desafio 5KM &middot; 23 de agosto de 2026</p>
+
+      <div class="aviso-medico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        <span><strong>Importante:</strong> este conteúdo é apenas uma sugestão de planilha de treino, sem caráter prescritivo. Ao menor sinal de desconforto, dor ou mal-estar, suspenda imediatamente as atividades e procure orientação médica.</span>
+      </div>
     </div>
 
-    <div class="dashboard">
-      <div class="progress-header">
-        <span>Seu Progresso Total</span>
-        <span id="progress-counter">0 / 0 concluídos</span>
-        <span id="progress-percentage">0%</span>
+    <div class="rota-secao">
+      <div class="rota-titulo">
+        <h2>Sua rota até o 5KM</h2>
+        <span id="rota-status">Semana 1 de 6</span>
       </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" id="progress-fill"></div>
+      <div class="rota-track">
+        <div class="rota-linha-bg"></div>
+        <div class="rota-linha-fill" id="rota-fill"></div>
+        <div class="rota-pontos" id="rota-pontos"></div>
+      </div>
+
+      <div class="dashboard">
+        <div class="progress-header">
+          <span>Progresso total</span>
+          <span id="progress-counter">0 / 0 concluídos</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Legenda de Percepção Subjetiva de Esforço -->
   <div class="legenda">
-    <div class="legenda-item"><span class="dot" style="background: #166534;"></span><span>Leve (PSE 3-4): Ritmo de conversa confortável</span></div>
-    <div class="legenda-item"><span class="dot" style="background: #854D0E;"></span><span>Moderado (PSE 5-7): Respiração ofegante mas controlada</span></div>
-    <div class="legenda-item"><span class="dot" style="background: #991B1B;"></span><span>Forte (PSE 8-9): Velocidade máxima sustentável</span></div>
+    <div class="legenda-pill leve">Leve (PSE 3–4) · ritmo de conversa confortável</div>
+    <div class="legenda-pill moderado">Moderado (PSE 5–7) · respiração ofegante, controlada</div>
+    <div class="legenda-pill forte">Forte (PSE 8–9) · velocidade máxima sustentável</div>
   </div>
 
   <div class="table-responsive">
     <table>
       <thead>
         <tr>
-          <th>Semana / Fase</th>
-          <th>Terça-Feira (Volume)</th>
-          <th>Quinta-Feira (Intervalado)</th>
-          <th>Sábado (Longo)</th>
-          <th style="width: 200px;">Meta Semanal</th>
+          <th>Semana / fase</th>
+          <th>Terça-feira (volume)</th>
+          <th>Quinta-feira (intervalado)</th>
+          <th>Sábado (longo)</th>
+          <th style="width: 210px;">Meta semanal</th>
         </tr>
       </thead>
       <tbody>
         <!-- Semana 1 -->
-        <tr>
+        <tr data-semana="1">
           <td class="semana-cell">
             <span class="num-semana">1</span>
             <span class="tag-fase fase-adaptacao">Adaptação</span>
-            <div style="font-size: 10px; margin-top: 4px; color: var(--gray);">14/07 - 18/07</div>
+            <div style="font-size: 10px; margin-top: 5px; color: var(--text-muted);">14/07 – 18/07</div>
           </td>
           <td>
-            <strong>Ter 14/07</strong>
+            <span class="dia-data">Ter 14/07</span>
             <label class="item-treino"><input type="checkbox" data-id="s1-t1"><span>Caminhada de aquecimento: 10 min</span></label>
             <label class="item-treino"><input type="checkbox" data-id="s1-t2"><span>5x (2 min trote leve / 2 min caminhada)</span></label>
-            <span class="badge-pse pse-leve">PSE 3 - Leve</span>
+            <span class="badge-pse pse-leve">PSE 3 — leve</span>
           </td>
           <td>
-            <strong>Qui 16/07</strong>
+            <span class="dia-data">Qui 16/07</span>
             <label class="item-treino"><input type="checkbox" data-id="s1-q1"><span>Caminhada rápida: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s1-q2"><span>6x (1 min 30s trote leve / 1 min 30s caminhada)</span></label>
-            <span class="badge-pse pse-moderado">PSE 5 - Moderado</span>
+            <label class="item-treino"><input type="checkbox" data-id="s1-q2"><span>6x (1min30 trote leve / 1min30 caminhada)</span></label>
+            <span class="badge-pse pse-moderado">PSE 5 — moderado</span>
           </td>
           <td>
-            <strong>Sáb 18/07</strong>
+            <span class="dia-data">Sáb 18/07</span>
             <label class="item-treino"><input type="checkbox" data-id="s1-s1"><span>Caminhada ativa: 5 min</span></label>
             <label class="item-treino"><input type="checkbox" data-id="s1-s2"><span>4x (3 min trote leve / 2 min caminhada)</span></label>
-            <span class="badge-pse pse-leve">PSE 4 - Leve</span>
+            <span class="badge-pse pse-leve">PSE 4 — leve</span>
           </td>
           <td class="meta-semanal">Iniciar a adaptação articular com estímulos curtos e seguros de corrida intercalada.</td>
         </tr>
 
         <!-- Semana 2 -->
-        <tr>
+        <tr data-semana="2">
           <td class="semana-cell">
             <span class="num-semana">2</span>
             <span class="tag-fase fase-adaptacao">Adaptação</span>
-            <div style="font-size: 10px; margin-top: 4px; color: var(--gray);">21/07 - 25/07</div>
+            <div style="font-size: 10px; margin-top: 5px; color: var(--text-muted);">21/07 – 25/07</div>
           </td>
           <td>
-            <strong>Ter 21/07</strong>
+            <span class="dia-data">Ter 21/07</span>
             <label class="item-treino"><input type="checkbox" data-id="s2-t1"><span>Caminhada rápida: 5 min</span></label>
             <label class="item-treino"><input type="checkbox" data-id="s2-t2"><span>3x (5 min trote leve / 2 min caminhada)</span></label>
-            <span class="badge-pse pse-leve">PSE 4 - Leve</span>
+            <span class="badge-pse pse-leve">PSE 4 — leve</span>
           </td>
           <td>
-            <strong>Qui 23/07</strong>
+            <span class="dia-data">Qui 23/07</span>
             <label class="item-treino"><input type="checkbox" data-id="s2-q1"><span>Caminhada leve: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s2-q2"><span>5x (3 min trote leve / 1 min 30s caminhada)</span></label>
-            <span class="badge-pse pse-moderado">PSE 6 - Moderado</span>
+            <label class="item-treino"><input type="checkbox" data-id="s2-q2"><span>5x (3 min trote leve / 1min30 caminhada)</span></label>
+            <span class="badge-pse pse-moderado">PSE 6 — moderado</span>
           </td>
           <td>
-            <strong>Sáb 25/07</strong>
+            <span class="dia-data">Sáb 25/07</span>
             <label class="item-treino"><input type="checkbox" data-id="s2-s1"><span>Caminhada de aquecimento: 5 min</span></label>
             <label class="item-treino"><input type="checkbox" data-id="s2-s2"><span>4x (4 min trote leve / 2 min caminhada)</span></label>
-            <span class="badge-pse pse-leve">PSE 4 - Leve</span>
+            <span class="badge-pse pse-leve">PSE 4 — leve</span>
           </td>
           <td class="meta-semanal">Aumentar suavemente o tempo acumulado de corrida sem pular etapas.</td>
         </tr>
 
         <!-- Semana 3 -->
-        <tr>
+        <tr data-semana="3">
           <td class="semana-cell">
             <span class="num-semana">3</span>
             <span class="tag-fase fase-condicionante">Condição</span>
-            <div style="font-size: 10px; margin-top: 4px; color: var(--gray);">28/07 - 01/08</div>
+            <div style="font-size: 10px; margin-top: 5px; color: var(--text-muted);">28/07 – 01/08</div>
           </td>
           <td>
-            <strong>Ter 28/07</strong>
+            <span class="dia-data">Ter 28/07</span>
             <label class="item-treino"><input type="checkbox" data-id="s3-t1"><span>Caminhada rápida: 5 min</span></label>
             <label class="item-treino"><input type="checkbox" data-id="s3-t2"><span>2x (8 min trote confortável / 2 min caminhada)</span></label>
-            <span class="badge-pse pse-leve">PSE 5 - Moderado</span>
+            <span class="badge-pse pse-moderado">PSE 5 — moderado</span>
           </td>
           <td>
-            <strong>Qui 30/07</strong>
+            <span class="dia-data">Qui 30/07</span>
             <label class="item-treino"><input type="checkbox" data-id="s3-q1"><span>Caminhada ativa: 5 min</span></label>
             <label class="item-treino"><input type="checkbox" data-id="s3-q2"><span>6x (2 min corrida moderada / 1 min caminhada ativa)</span></label>
-            <span class="badge-pse pse-moderado">PSE 7 - Moderado/Forte</span>
+            <span class="badge-pse pse-moderado">PSE 7 — moderado/forte</span>
           </td>
           <td>
-            <strong>Sáb 01/08</strong>
+            <span class="dia-data">Sáb 01/08</span>
             <label class="item-treino"><input type="checkbox" data-id="s3-s1"><span>Caminhada rápida de aquecimento: 5 min</span></label>
             <label class="item-treino"><input type="checkbox" data-id="s3-s2"><span>15 min de corrida contínua constante</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s3-s3"><span>Caminhada: 3 min + Trote leve final: 5 min</span></label>
-            <span class="badge-pse pse-leve">PSE 4 - Leve</span>
+            <label class="item-treino"><input type="checkbox" data-id="s3-s3"><span>Caminhada 3 min + trote leve final 5 min</span></label>
+            <span class="badge-pse pse-leve">PSE 4 — leve</span>
           </td>
           <td class="meta-semanal">Consolidar fôlego e experimentar frações de tempo maiores de corrida direta.</td>
         </tr>
 
         <!-- Semana 4 -->
-        <tr>
+        <tr data-semana="4">
           <td class="semana-cell">
             <span class="num-semana">4</span>
             <span class="tag-fase fase-condicionante">Condição</span>
-            <div style="font-size: 10px; margin-top: 4px; color: var(--gray);">04/08 - 08/08</div>
+            <div style="font-size: 10px; margin-top: 5px; color: var(--text-muted);">04/08 – 08/08</div>
           </td>
           <td>
-            <strong>Ter 04/08</strong>
+            <span class="dia-data">Ter 04/08</span>
             <label class="item-treino"><input type="checkbox" data-id="s4-t1"><span>Caminhada rápida: 5 min</span></label>
             <label class="item-treino"><input type="checkbox" data-id="s4-t2"><span>20 min de corrida contínua (confortável)</span></label>
-            <span class="badge-pse pse-leve">PSE 5 - Moderado</span>
+            <span class="badge-pse pse-moderado">PSE 5 — moderado</span>
           </td>
           <td>
-            <strong>Qui 06/08</strong>
+            <span class="dia-data">Qui 06/08</span>
             <label class="item-treino"><input type="checkbox" data-id="s4-q1"><span>Trote leve de aquecimento: 5 min</span></label>
-            <label class="item-treino"><input type="checkbox" data-id="s4-q2"><span>5x (3 min corrida moderada/forte / 1 min 30s caminhada)</span></label>
-            <span class="badge-pse pse-forte">PSE 8 - Forte</span>
+            <label class="item-treino"><input type="checkbox" data-id="s4-q2"><span>5x (3 min corrida moderada/forte / 1min30 caminhada)</span></label>
+            <span class="badge-pse pse-forte">PSE 8 — forte</span>
           </td>
           <td>
-            <strong>Sáb 08/08</strong>
+            <span class="dia-data">Sáb 08/08</span>
             <label class="item-treino"><input type="checkbox" data-id="s4-s1"><span>Caminhada e mobilidade: 5 min</span></label>
             <label class="item-treino"><input type="checkbox" data-id="s4-s2"><span>25 min de corrida contínua no ritmo ideal de prova</span></label>
-            <span class="badge-pse pse-moderado">PSE 6 - Moderado</span>
+            <span class="badge-pse pse-moderado">PSE 6 — moderado</span>
           </td>
           <td class="meta-semanal">Ganhar resistência aeróbica sustentando estímulos de corrida contínua por mais tempo.</td>
         </tr>
 
         <!-- Semana 5 -->
-        <tr>
+        <tr data-semana="5">
           <td class="semana-cell">
             <span class="num-semana">5</span>
             <span class="tag-fase fase-aperfeicoamento">Ajustes</span>
-            <div style="font-size: 10px; margin-top: 4px; color: var(--gray);">11/08 - 15/08</div>
+            <div style="font-size: 10px; margin-top: 5px; color: var(--text-muted);">11/08 – 15/08</div>
           </td>
           <td>
-            <strong>Ter 11/08</strong>
+            <span class="dia-data">Ter 11/08</span>
             <label class="item-treino"><input type="checkbox" data-id="s5-t1"><span>Corrida confortável direta: 25 min</span></label>
-            <span class="badge-pse pse-leve">PSE 5 - Moderado</span>
+            <span class="badge-pse pse-moderado">PSE 5 — moderado</span>
           </td>
           <td>
-            <strong>Qui 13/08</strong>
+            <span class="dia-data">Qui 13/08</span>
             <label class="item-treino"><input type="checkbox" data-id="s5-q1"><span>Trote leve de aquecimento: 5 min</span></label>
             <label class="item-treino"><input type="checkbox" data-id="s5-q2"><span>4x (4 min em ritmo forte de prova / 2 min caminhada ativa)</span></label>
-            <span class="badge-pse pse-forte">PSE 8 - Forte</span>
+            <span class="badge-pse pse-forte">PSE 8 — forte</span>
           </td>
           <td>
-            <strong>Sáb 15/08</strong>
+            <span class="dia-data">Sáb 15/08</span>
             <label class="item-treino"><input type="checkbox" data-id="s5-s1"><span>Simulado oficial: 30 a 35 min de corrida firme e constante</span></label>
-            <span class="badge-pse pse-moderado">PSE 7 - Moderado/Forte</span>
+            <span class="badge-pse pse-moderado">PSE 7 — moderado/forte</span>
           </td>
-          <td class="meta-semanal">Semana de pico. O simulado de sábado servirá para ajustar a sua estratégia física e mental.</td>
+          <td class="meta-semanal">Semana de pico. O simulado de sábado ajuda a ajustar sua estratégia física e mental.</td>
         </tr>
 
         <!-- Semana 6 -->
-        <tr>
+        <tr data-semana="6">
           <td class="semana-cell">
             <span class="num-semana">6</span>
             <span class="tag-fase fase-objetivo">Polimento</span>
-            <div style="font-size: 10px; margin-top: 4px; color: var(--gray);">18/08 - 23/08</div>
+            <div style="font-size: 10px; margin-top: 5px; color: var(--text-muted);">18/08 – 23/08</div>
           </td>
           <td>
-            <strong>Ter 18/08</strong>
+            <span class="dia-data">Ter 18/08</span>
             <label class="item-treino"><input type="checkbox" data-id="s6-t1"><span>Caminhada: 5 min</span></label>
             <label class="item-treino"><input type="checkbox" data-id="s6-t2"><span>Trote super leve e confortável para soltura: 15 a 20 min</span></label>
-            <span class="badge-pse pse-leve">PSE 3 - Super Leve</span>
+            <span class="badge-pse pse-leve">PSE 3 — super leve</span>
           </td>
           <td>
-            <strong>Qui 20/08</strong>
+            <span class="dia-data">Qui 20/08</span>
             <label class="item-treino"><input type="checkbox" data-id="s6-q1"><span>Trote super leve de soltura: 15 min</span></label>
             <label class="item-treino"><input type="checkbox" data-id="s6-q2"><span>3 acelerações leves e curtas de 50m para ativar as pernas</span></label>
-            <span class="badge-pse pse-leve">PSE 4 - Leve</span>
+            <span class="badge-pse pse-leve">PSE 4 — leve</span>
           </td>
           <td>
-            <strong>Dom 23/08</strong>
-            <div class="card-prova">🏆 DOMINGO (23/08) - DESAFIO OFICIAL 5KM!</div>
+            <span class="dia-data">Dom 23/08</span>
+            <div class="card-prova">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+              Domingo — desafio oficial 5KM
+            </div>
           </td>
-          <td class="meta-semanal">Polimento e recuperação. Descanse bem as pernas e prepare-se para o grande dia!</td>
+          <td class="meta-semanal">Polimento e recuperação. Descanse bem as pernas e prepare-se para o grande dia.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- Container de Cards para Mobile -->
-  <div class="mobile-cards"></div>
+  <div class="mobile-cards" id="mobile-cards"></div>
 
-  <!-- Diário de Treino / Notas -->
   <div class="anotacoes-secao">
-    <h3>📝 Diário do Corredor / Anotações</h3>
-    <textarea id="anotacoes-campo" placeholder="Ex: 'Semana 1 concluída sem dores. Senti cansaço na quinta-feira, mas o ritmo de sábado foi excelente.'"></textarea>
+    <h3>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+      Diário do corredor
+    </h3>
+    <textarea id="anotacoes-campo" placeholder="Ex.: semana 1 concluída sem dores. Senti cansaço na quinta-feira, mas o ritmo de sábado foi excelente."></textarea>
+    <div class="anotacoes-status" id="anotacoes-status"></div>
   </div>
 
   <footer>
-    <span>SUGESTÃO DE PLANILHA &middot; FOCO, CONSTÂNCIA E EVOLUÇÃO</span>
-    <button class="btn-reset" onclick="resetPlanilha()">Reiniciar Planilha</button>
+    <span class="disclaimer">Sugestão de planilha · foco, constância e evolução</span>
+    <button class="btn-reset" onclick="resetPlanilha()">Reiniciar planilha</button>
   </footer>
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const tableRows = document.querySelectorAll("tbody tr");
-    const mobileContainer = document.querySelector(".mobile-cards");
-    const headers = ["Terça-Feira", "Quinta-Feira", "Sábado"];
+(function () {
+  const STORAGE_KEY = 'plano-5km-progress';
+  let saveTimeout = null;
 
-    // 1. Geração automatizada de cards mobile responsivos sincronizados
+  async function loadState() {
+    try {
+      const result = await window.storage.get(STORAGE_KEY, false);
+      if (result && result.value) return JSON.parse(result.value);
+    } catch (e) {
+      // chave ainda não existe ou falha de leitura — segue com estado vazio
+    }
+    return { checks: {}, notes: '' };
+  }
+
+  async function saveState(state) {
+    try {
+      await window.storage.set(STORAGE_KEY, JSON.stringify(state), false);
+    } catch (e) {
+      console.error('Falha ao salvar progresso:', e);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', async function () {
+    const state = await loadState();
+
+    const tableRows = document.querySelectorAll('tbody tr');
+    const mobileContainer = document.getElementById('mobile-cards');
+    const headers = ['Terça-feira', 'Quinta-feira', 'Sábado'];
+
+    // Construção dos cards mobile a partir da tabela
     tableRows.forEach((row, rowIndex) => {
-      const numSemana = row.querySelector(".num-semana").innerText;
-      const tagFase = row.querySelector(".tag-fase").outerHTML;
-      const metaText = row.querySelector(".meta-semanal").innerText;
-      const tdDias = row.querySelectorAll("td:nth-child(2), td:nth-child(3), td:nth-child(4)");
-      
-      let cardHtml = `
-        <div class="card-semana">
-          <div class="card-semana-header">
-            <span class="card-semana-titulo">Semana ${numSemana}</span>
-            ${tagFase}
-          </div>
-          <div class="card-meta-bloco">
-            <strong>Foco da Semana:</strong> ${metaText}
-          </div>
-      `;
+      const numSemana = row.querySelector('.num-semana').innerText;
+      const tagFase = row.querySelector('.tag-fase').outerHTML;
+      const metaText = row.querySelector('.meta-semanal').innerText;
+      const tdDias = row.querySelectorAll('td:nth-child(2), td:nth-child(3), td:nth-child(4)');
+
+      let cardHtml = '<div class="card-semana"><div class="card-semana-header">' +
+        '<span class="card-semana-titulo">Semana ' + numSemana + '</span>' + tagFase + '</div>' +
+        '<div class="card-meta-bloco"><strong>Foco da semana:</strong> ' + metaText + '</div>';
 
       tdDias.forEach((td, index) => {
-        // Altera o label do último dia da semana 6 de Sábado para Domingo no Mobile
         let diaNome = headers[index];
-        if (rowIndex === 5 && index === 2) {
-          diaNome = "Domingo";
-        }
-
-        cardHtml += `
-          <div class="card-dia-bloco">
-            <div class="card-dia-nome">${diaNome}</div>
-            <div>${td.innerHTML}</div>
-          </div>
-        `;
+        if (rowIndex === 5 && index === 2) diaNome = 'Domingo';
+        cardHtml += '<div class="card-dia-bloco"><div class="card-dia-nome">' + diaNome + '</div><div>' + td.innerHTML + '</div></div>';
       });
 
-      cardHtml += `</div>`;
+      cardHtml += '</div>';
       mobileContainer.innerHTML += cardHtml;
     });
 
-    // 2. Banco de dados do progresso integrado com LocalStorage
+    // Construção da rota / checkpoints (elemento assinatura)
+    const rotaPontos = document.getElementById('rota-pontos');
+    for (let i = 1; i <= 6; i++) {
+      const ponto = document.createElement('div');
+      ponto.className = 'rota-ponto';
+      const isFinal = i === 6;
+      ponto.innerHTML = '<div class="rota-marcador' + (isFinal ? ' flag' : '') + '" data-semana="' + i + '">' +
+        (isFinal ? '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>' : i) +
+        '</div><div class="rota-label">' + (isFinal ? '5KM' : 'Sem. ' + i) + '</div>';
+      rotaPontos.appendChild(ponto);
+    }
+
+    // Restaura checkboxes e aplica em todos os espelhos (tabela + mobile)
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    
-    // Carrega progresso salvos
     checkboxes.forEach(cb => {
       const id = cb.getAttribute('data-id');
-      if (localStorage.getItem(id) === 'true') {
-        cb.checked = true;
-      }
-      
-      // Sincronização em tempo real (Mobile <-> Desktop) ao alterar
-      cb.addEventListener('change', function() {
-        const state = this.checked;
+      if (state.checks[id]) cb.checked = true;
+
+      cb.addEventListener('change', function () {
+        const checked = this.checked;
         const currentId = this.getAttribute('data-id');
-        
-        document.querySelectorAll(`[data-id="${currentId}"]`).forEach(mirrorCb => {
-          mirrorCb.checked = state;
+
+        document.querySelectorAll('[data-id="' + currentId + '"]').forEach(mirror => {
+          mirror.checked = checked;
         });
 
-        localStorage.setItem(currentId, state);
+        state.checks[currentId] = checked;
         atualizarProgresso();
+        scheduleSave();
       });
     });
 
-    // 3. Atualizador de progresso (Cálculo com base em IDs únicos para evitar dupla contagem)
-    function atualizarProgresso() {
-      const totalCheckboxes = document.querySelectorAll('table input[type="checkbox"]').length;
-      const marcadosCheckboxes = document.querySelectorAll('table input[type="checkbox"]:checked').length;
-      
-      const porcentagem = totalCheckboxes > 0 ? Math.round((marcadosCheckboxes / totalCheckboxes) * 100) : 0;
-      
-      document.getElementById('progress-fill').style.width = porcentagem + '%';
-      document.getElementById('progress-percentage').innerText = porcentagem + '%';
-      document.getElementById('progress-counter').innerText = `${marcadosCheckboxes} de ${totalCheckboxes} concluídos`;
+    function scheduleSave() {
+      if (saveTimeout) clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(() => saveState(state), 500);
     }
 
-    // 4. Salvar Diário de Anotações automaticamente
-    const anotacoesTextarea = document.getElementById('anotacoes-campo');
-    const anotacoesSalvas = localStorage.getItem('sugestao_treino_notes');
-    
-    if (anotacoesSalvas) {
-      anotacoesTextarea.value = anotacoesSalvas;
+    function atualizarProgresso() {
+      const total = document.querySelectorAll('table input[type="checkbox"]').length;
+      const marcados = document.querySelectorAll('table input[type="checkbox"]:checked').length;
+      const porcentagem = total > 0 ? Math.round((marcados / total) * 100) : 0;
+
+      document.getElementById('progress-fill').style.width = porcentagem + '%';
+      document.getElementById('progress-counter').innerText = marcados + ' de ' + total + ' concluídos';
+
+      // Progresso por semana para a rota de checkpoints
+      let semanasCompletas = 0;
+      tableRows.forEach((row) => {
+        const semana = row.getAttribute('data-semana');
+        const boxes = row.querySelectorAll('input[type="checkbox"]');
+        const todasMarcadas = Array.from(boxes).every(b => b.checked);
+        const marcador = document.querySelector('.rota-marcador[data-semana="' + semana + '"]');
+        if (marcador) {
+          if (todasMarcadas && boxes.length > 0) {
+            marcador.classList.add('feito');
+            if (semana !== '6') semanasCompletas++;
+          } else {
+            marcador.classList.remove('feito');
+          }
+        }
+      });
+
+      const semana6 = tableRows[5];
+      const semana6Boxes = semana6.querySelectorAll('input[type="checkbox"]');
+      const semana6Completa = Array.from(semana6Boxes).every(b => b.checked) && semana6Boxes.length > 0;
+      if (semana6Completa) semanasCompletas = 6;
+
+      const fillPct = Math.round((semanasCompletas / 6) * 100);
+      document.getElementById('rota-fill').style.width = fillPct + '%';
+      document.getElementById('rota-status').innerText = semana6Completa
+        ? 'Rota concluída'
+        : 'Semana ' + Math.min(semanasCompletas + 1, 6) + ' de 6';
     }
-    
-    anotacoesTextarea.addEventListener('input', function() {
-      localStorage.setItem('sugestao_treino_notes', this.value);
+
+    // Diário de anotações
+    const anotacoesTextarea = document.getElementById('anotacoes-campo');
+    const anotacoesStatus = document.getElementById('anotacoes-status');
+    anotacoesTextarea.value = state.notes || '';
+
+    let notesTimeout = null;
+    anotacoesTextarea.addEventListener('input', function () {
+      state.notes = this.value;
+      anotacoesStatus.innerText = 'Salvando…';
+      if (notesTimeout) clearTimeout(notesTimeout);
+      notesTimeout = setTimeout(async () => {
+        await saveState(state);
+        anotacoesStatus.innerText = 'Salvo';
+        setTimeout(() => { anotacoesStatus.innerText = ''; }, 1500);
+      }, 600);
     });
 
-    // Inicialização da interface
     atualizarProgresso();
-    window.atualizarProgresso = atualizarProgresso; 
+    window.atualizarProgressoPlanilha = atualizarProgresso;
+    window.resetPlanilhaState = state;
   });
 
-  // Limpeza dos dados
-  function resetPlanilha() {
-    if (confirm("Atenção: Isso irá limpar todo o seu progresso, caixas marcadas e anotações pessoais. Deseja continuar?")) {
-      localStorage.clear();
-      document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-      document.getElementById('anotacoes-campo').value = '';
-      window.atualizarProgresso();
+  window.resetPlanilha = async function () {
+    if (!confirm('Isso vai limpar todo o seu progresso, caixas marcadas e anotações. Deseja continuar?')) return;
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => (cb.checked = false));
+    document.getElementById('anotacoes-campo').value = '';
+    const emptyState = { checks: {}, notes: '' };
+    await saveState(emptyState);
+    if (window.resetPlanilhaState) {
+      window.resetPlanilhaState.checks = {};
+      window.resetPlanilhaState.notes = '';
     }
-  }
+    if (window.atualizarProgressoPlanilha) window.atualizarProgressoPlanilha();
+  };
+})();
 </script>
 </body>
 </html>
